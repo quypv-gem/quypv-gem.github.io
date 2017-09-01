@@ -1,0 +1,12 @@
+body { font-size: 20px; color: #aea29e }
+nav, form { padding: 0 20px }
+form { padding-top: 20px }
+#todo { width: 25% }
+.todo-item { margin-bottom: 10px }
+.todo-item i { vertical-align: middle; color: #F44336; visibility: hidden; cursor: pointer }
+.todo-item:hover i { visibility: visible }
+[type="checkbox"].filled-in:checked+label:after { 
+    background-color: #F44336;
+    border-color: #F44336;
+}
+.input-field { margin-top: 30px }
