@@ -1,35 +1,32 @@
-<!doctype html>
-<html ng-app="todoApp">
-  <head>
-    <link rel="stylesheet" href="lib/materialize/dist/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="app.css" />
-  </head>
-  <body ng-controller="TodoController">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Todo list</a>
-      </div>
-    </nav>
-    <form ng-submit="add()">
-      <small ng-show="!todos.length"><em>You don't have any todo. Create one below.</em></small>
-      <div ng-repeat="todo in todos" class="todo-item">
-        <input type="checkbox" class="filled-in" id="todo-{{$index}}" ng-model="todo.select" ng-change="$parent.counter = todo.select ? $parent.counter + 1 : $parent.counter - 1" />
-        <label for="todo-{{$index}}">{{ todo.text }}</label>
-        <i class="material-icons" ng-click="remove($index)">remove_circle</i>
-      </div>
-      <div>
-        <div class="input-field">
-          <input id="todo" type="text" class="validate" ng-model="newTodo" maxlength="100">
-          <label class="active" for="todo">New todo</label>
-        </div>
-      </div>
-      <button class="waves-effect waves-light btn" type="submit">ADD</button>
-      <button class="waves-effect waves-light btn red" type="button" ng-show="counter" ng-click="bulkRemove()">REMOVE SELECTED</button>
-    </form>
-    <script src="lib/jquery-1.12.4.min.js"></script>
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/materialize/dist/js/materialize.min.js"></script>
-    <script src="app.js"></script>
-  </body>
+<!doctype>
+<html ng-app="MatchLandTool">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/app.css" rel="stylesheet">
+</head>
+<body ng-controller="MainController">
+    
+    <table>
+        <tr>
+            <td><div class="cell axe" ng-click="pickAxe()">&nbsp;</div></td>
+            <td><div class="cell sword" ng-click="pickSword()">&nbsp;</div></td>
+            <td><div class="cell spear" ng-click="pickSpear()">&nbsp;</div></td>
+            <td><div class="cell heart" ng-click="pickHeart()">&nbsp;</div></td>
+            <td><div class="cell staff" ng-click="pickStaff()">&nbsp;</div></td>
+        </tr>
+    </table>
+
+    <table>
+        <tr ng-repeat="row in board">
+            <td ng-repeat="cell in row" ng-click="dropType(cell)" class="cell {{ cell.type }}"></td>
+        </tr>
+    </table>
+
+    <td></td>
+
+    <script src="js/angular.js"></script>
+    <script src="js/block.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/app.js"></script>
+</body>
 </html>

@@ -1,0 +1,41 @@
+.hidden { display: none }
+
+td {
+  width: 36px;
+  height: 40px;
+  max-width: 36px;
+  max-height: 40px;
+  padding: 2px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.sword {
+  background-color: #e8728d;
+  background-image: url('../img/sword.png');
+}
+.axe {
+  background-color: #f7c12d;
+  background-image: url('../img/axe.png');
+}
+.spear {
+  background-color: #b8d653;
+  background-image: url('../img/spear.png');
+}
+.staff {
+  background-color: #ac86fd;
+  background-image: url('../img/lollipop.png');
+}
+.heart {
+  background-color: #fff;
+  background-image: url('../img/heart.png');
+}
+
+.cell {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 36px 36px;
+}
