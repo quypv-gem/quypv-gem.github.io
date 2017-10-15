@@ -13,18 +13,16 @@ class Block {
     this.right  = null;
     this.bottom = null;
     this.left   = null;
-    this.type   = arr_types[Math.floor(Math.random() * arr_types.length)];
+    this.type   = '';
     this.displayType = this.type;
     this.lock   = false;
     this.isRoot = true;
     this.root   = null;
     this.x      = 0;
     this.y      = 0;
-    this.highlight  = false;
+    // this.highlight  = false;
     this.valuePoint = 0;
-    //this.bestMove   = '';
     this.isBestMove = false;
-    //this.moveOrder  = 0;
     this.moves = [];
 
     if (typeof ancestor !== 'undefined') {
@@ -68,24 +66,6 @@ class Block {
     if (this.isRoot) return this;
     else return this.root;
   }
-
-  // getUpperRight() {
-  //   if (!this.right && !this.top) return this;
-  //   if (this.right) return this.right.getUpperRight();
-  //   if (this.top) return this.top.getUpperRight();
-  // }
-
-  // getBottomRight() {
-  //   if (!this.right && !this.bottom) return this;
-  //   if (this.right) return this.right.getUpperRight();
-  //   if (this.bottom) return this.bottom.getUpperRight();
-  // }
-
-  // getBottomLeft() {
-  //   if (!this.left && !this.bottom) return this;
-  //   if (this.left) return this.left.getUpperRight();
-  //   if (this.bottom) return this.bottom.getUpperRight();
-  // }
 
   addRight() {
     this.right = new Block(this, 'right');
@@ -160,7 +140,7 @@ class Block {
   }
 
   evaluate() {
-    if (this.lock) return;
+    if (this.lock || !this.type) return;
 
     var tryRight  = this.try('right');    if (tryRight  > 1) this.bestMove = 'right';
     var tryBottom = this.try('bottom');   if (tryBottom > Math.max(1, tryRight)) this.bestMove = 'bottom';
@@ -234,6 +214,25 @@ class Block {
     var tmp = this.type;
     this.type = otherBlock.type;
     otherBlock.type = tmp;
+  }
+
+  hardReset() {
+    this.type   = '';
+    this.displayType = this.type;
+    this.lock   = false;
+    this.valuePoint = 0;
+    this.isBestMove = false;
+    this.moves = [];
+  }
+
+  clean() {
+    if(this.lock) {
+      this.hardReset();
+    }
+    this.displayType = this.type;
+    this.isBestMove = false;
+    this.bestMove = '';
+    this.moves = [];
   }
 
 }

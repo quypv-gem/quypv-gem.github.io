@@ -81,4 +81,26 @@ class Matrix {
     }
   }
 
+  reset() {
+    this.travel(function(block){
+      block.hardReset();
+    });
+    this.solveTimes = 0;
+  }
+
+  next() {
+    this.travel(function(block){
+      block.clean();
+    });
+    this.solveTimes = 0;
+  }
+
+  dump() {
+    this.reset();
+    this.travel(function(block){
+      block.type = arr_types[Math.floor(Math.random() * arr_types.length)];
+      block.displayType = block.type;
+    });
+  }
+
 }

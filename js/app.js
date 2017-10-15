@@ -45,5 +45,17 @@ angular.module('MatchLandTool', [])
     this.matrix.solve();
   }
 
+  $sc.reset = function() {
+    this.matrix.reset();
+  }
+
+  $sc.next = function() {
+    this.matrix.next();
+  }
+
+  $sc.test = function() {
+    this.matrix.dump();
+  }
+
 }]);
 
