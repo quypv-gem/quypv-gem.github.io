@@ -29,6 +29,14 @@ td {
 .heart {
   background-color: #fff;
   background-image: url('../img/heart.png');
+  border: 2px solid #eee;
+}
+.bow {
+  background-color: #8ecde3;
+  background-image: url('../img/bow.png');
+}
+.lock {
+  background-image: url('../img/lock.png');
 }
 
 .cell {
@@ -38,4 +46,96 @@ td {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 36px 36px;
+  position: relative;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+}
+.solve { 
+  background-color: #0f81e0;
+  color: #fff;
+}
+.reset {
+  background-color: #fff;
+}
+.highlight {
+  /* box-shadow:rgba(0,0,0,0.5) 0px 0px 24px; */
+  box-shadow: rgba(3, 157, 255, 1) 0px 0px 15px;
+}
+
+.hint {
+  content: '';
+  display: none;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-color: rgba(255, 0, 0, 0.8);
+  width: 16px;
+  height: 16px;
+  z-index: 9;
+  position: absolute;
+  line-height: 1;
+  color: #fff;
+}
+
+.move-bottom {
+  display: block;
+  bottom: -15px;
+  left: 10px;
+  background-image: url('../img/arrow-bottom.png');
+  background-position: bottom;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.move-top {
+  background-image: url('../img/arrow-top.png');
+  display: block;
+  top: -15px;
+  left: 10px;
+  background-position: top;
+  padding-top: 15px;
+  text-align: center;
+}
+.move-right {
+  background-image: url('../img/arrow-right.png');
+  display: block;
+  right: -15px;
+  top: 8px;
+  background-position: right;
+  padding-right: 15px;
+  text-align: right;
+}
+.move-left {
+  background-image: url('../img/arrow-left.png');
+  display: block;
+  left: -15px;
+  top: 8px;
+  background-position: left;
+  padding-left: 15px;
+  text-align: left;
+}
+
+/* .cell:after {
+  content: attr(data-order);
+  width: 20px;
+  height: 20px;
+  display: none;
+  position: absolute;
+  z-index: 9;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+} */
+.move-bottom:after,
+.move-top:after,
+.move-right:after,
+.move-left:after {
+  /* display: block; */
 }

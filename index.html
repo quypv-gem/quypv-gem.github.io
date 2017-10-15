@@ -5,7 +5,7 @@
     <link href="css/app.css" rel="stylesheet">
 </head>
 <body ng-controller="MainController">
-    
+    <br><br>
     <table>
         <tr>
             <td><div class="cell axe" ng-click="pickAxe()">&nbsp;</div></td>
@@ -13,16 +13,26 @@
             <td><div class="cell spear" ng-click="pickSpear()">&nbsp;</div></td>
             <td><div class="cell heart" ng-click="pickHeart()">&nbsp;</div></td>
             <td><div class="cell staff" ng-click="pickStaff()">&nbsp;</div></td>
+            <td><div class="cell bow" ng-click="pickBow()">&nbsp;</div></td>
+            <td><div class="cell lock" ng-click="pickLock()">&nbsp;</div></td>
         </tr>
     </table>
 
+    <br><br>
     <table>
         <tr ng-repeat="row in board">
-            <td ng-repeat="cell in row" ng-click="dropType(cell)" class="cell {{ cell.type }}"></td>
+            <td ng-repeat="cell in row" ng-click="dropType(cell)" ng-class="">
+                <div class="cell {{ cell.displayType }}" ng-class="[cell.lock ? 'highlight':'']">
+                    &nbsp;
+                    <span ng-repeat="move in cell.moves" class="hint move-{{move.direction}}">{{ move.order }}</span>
+                </div>
+            </td>
         </tr>
     </table>
 
-    <td></td>
+    <br><br>
+    <button class="btn solve" ng-click="solve()">Solve</button>
+    <button class="btn reset">Reset</button>
 
     <script src="js/angular.js"></script>
     <script src="js/block.js"></script>

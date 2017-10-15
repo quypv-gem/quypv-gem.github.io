@@ -7,10 +7,10 @@ angular.module('MatchLandTool', [])
   $sc.board = [];
   $sc.picker = axe;
 
-  $sc.maxtrix = new Matrix($sc.config.width, $sc.config.height);
+  $sc.matrix = new Matrix($sc.config.width, $sc.config.height);
 
   setTimeout(function(){
-    $sc.board = $sc.maxtrix.toArray();
+    $sc.board = $sc.matrix.toArray();
     $sc.$apply();
   }, 50);
 
@@ -29,9 +29,20 @@ angular.module('MatchLandTool', [])
   $sc.pickStaff = function() {
     this.picker = staff;
   }
+  $sc.pickBow = function() {
+    this.picker = bow;
+  }
+  $sc.pickLock = function() {
+    this.picker = lock;
+  }
 
   $sc.dropType = function(block) {
     block.type = $sc.picker;
+    block.displayType = $sc.picker;
+  }
+
+  $sc.solve = function() {
+    this.matrix.solve();
   }
 
 }]);
